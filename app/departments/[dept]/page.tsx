@@ -159,7 +159,16 @@ const departments: Record<string, DepartmentData> = {
 };
 
 
-export default function DepartmentPage({ params }: { params: { dept: string } }) {
+interface DepartmentPageProps {
+  params: { dept: string };
+}
+
+// Optional: For static generation
+export async function generateStaticParams() {
+  return Object.keys(departments).map((dept) => ({ dept }));
+}
+
+export default function DepartmentPage({ params }: DepartmentPageProps) {
   const deptInfo = departments[params.dept];
 
   if (!deptInfo) return notFound();
