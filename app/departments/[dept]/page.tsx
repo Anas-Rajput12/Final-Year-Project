@@ -158,14 +158,14 @@ const departments: Record<string, DepartmentData> = {
   }
 };
 
-interface DepartmentPageProps {
+type DepartmentPageProps = {
   params: {
     dept: string;
   };
-}
+};
 
+// ✅ Page component
 export default function DepartmentPage({ params }: DepartmentPageProps) {
-
   const deptInfo = departments[params.dept];
 
   if (!deptInfo) return notFound();
