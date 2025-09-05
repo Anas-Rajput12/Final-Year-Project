@@ -159,9 +159,8 @@ const departments: Record<string, DepartmentData> = {
 };
 
 
-export default function DepartmentPage() {
-  // Show one static department (e.g., IT)
-  const deptInfo = departments['it'];
+export default function DepartmentPage({ params }: { params: { dept: string } }) {
+  const deptInfo = departments[params.dept];
 
   if (!deptInfo) return notFound();
 
