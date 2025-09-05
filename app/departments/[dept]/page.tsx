@@ -1,4 +1,7 @@
+"use client";
+
 import { notFound } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 type DepartmentData = {
   name: string;
@@ -205,110 +208,139 @@ const departments: Record<string, DepartmentData> = {
   },
 };
 
-export default function DepartmentPage({
-  params,
-}: {
-  params: { dept: string };
-}) {
-  const deptInfo = departments[params.dept];
+export default function DepartmentPage() {
+  const pathname = usePathname();
+  const slug = pathname.split("/").pop(); // extract last part of URL
+  const deptInfo = slug ? departments[slug] : null;
 
   if (!deptInfo) return notFound();
+
   return (
-    <main style={{
-      padding: '40px 20px',
-      fontFamily: 'Segoe UI, sans-serif',
-      background: '#f7f9fb',
-      color: '#333',
-    }}>
-      <h1 style={{
-        textAlign: 'center',
-        fontSize: '2rem',
-        color: '#2c3e50',
-        marginBottom: '30px',
-        fontWeight: 700,
-      }}>
+    <main
+      style={{
+        padding: "40px 20px",
+        fontFamily: "Segoe UI, sans-serif",
+        background: "#f7f9fb",
+        color: "#333",
+      }}
+    >
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "2rem",
+          color: "#2c3e50",
+          marginBottom: "30px",
+          fontWeight: 700,
+        }}
+      >
         {deptInfo.name} Department
       </h1>
 
-      <div style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '20px',
-        justifyContent: 'space-between',
-      }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          justifyContent: "space-between",
+        }}
+      >
         {/* Left Sidebar - Staff */}
-        <aside style={{
-          flex: '1 1 22%',
-          background: '#ffffff',
-          padding: '20px',
-          borderRadius: '10px',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-          minWidth: '250px',
-        }}>
-          <h2 style={{ marginBottom: '10px', fontSize: '1.2rem' }}>👨‍🏫 Staff Members</h2>
-          <ul style={{ paddingLeft: '20px' }}>
+        <aside
+          style={{
+            flex: "1 1 22%",
+            background: "#ffffff",
+            padding: "20px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+            minWidth: "250px",
+          }}
+        >
+          <h2 style={{ marginBottom: "10px", fontSize: "1.2rem" }}>
+            👨‍🏫 Staff Members
+          </h2>
+          <ul style={{ paddingLeft: "20px" }}>
             {deptInfo.staff.map((member, i) => (
-              <li key={i} style={{ marginBottom: '8px' }}>{member}</li>
+              <li key={i} style={{ marginBottom: "8px" }}>
+                {member}
+              </li>
             ))}
           </ul>
         </aside>
 
         {/* Center - Overview + Chairman */}
-        <section style={{
-          flex: '1 1 48%',
-          minWidth: '300px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-        }}>
-          <div style={{
-            background: '#ffffff',
-            padding: '20px',
-            borderRadius: '10px',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-          }}>
-            <h2 style={{ fontSize: '1.2rem', marginBottom: '10px' }}>🏫 Department Overview</h2>
-            <p style={{ lineHeight: '1.6', color: '#444' }}>{deptInfo.overview}</p>
+        <section
+          style={{
+            flex: "1 1 48%",
+            minWidth: "300px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+          }}
+        >
+          <div
+            style={{
+              background: "#ffffff",
+              padding: "20px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+            }}
+          >
+            <h2 style={{ fontSize: "1.2rem", marginBottom: "10px" }}>
+              🏫 Department Overview
+            </h2>
+            <p style={{ lineHeight: "1.6", color: "#444" }}>
+              {deptInfo.overview}
+            </p>
           </div>
 
-          <div style={{
-            background: '#eaf2ff',
-            padding: '20px',
-            borderRadius: '10px',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-            textAlign: 'center',
-            transition: 'transform 0.2s ease',
-          }}>
+          <div
+            style={{
+              background: "#eaf2ff",
+              padding: "20px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+              textAlign: "center",
+              transition: "transform 0.2s ease",
+            }}
+          >
             <img
               src={deptInfo.chairman.image}
               alt={deptInfo.chairman.name}
               style={{
-                borderRadius: '50%',
-                width: '110px',
-                height: '110px',
-                objectFit: 'cover',
-                marginBottom: '10px',
-                border: '3px solid #2c3e50'
+                borderRadius: "50%",
+                width: "110px",
+                height: "110px",
+                objectFit: "cover",
+                marginBottom: "10px",
+                border: "3px solid #2c3e50",
               }}
             />
-            <h3 style={{ fontSize: '1.1rem', margin: '10px 0 5px' }}>{deptInfo.chairman.name}</h3>
-            <p style={{ color: '#666' }}>{deptInfo.chairman.position}</p>
+            <h3 style={{ fontSize: "1.1rem", margin: "10px 0 5px" }}>
+              {deptInfo.chairman.name}
+            </h3>
+            <p style={{ color: "#666" }}>{deptInfo.chairman.position}</p>
           </div>
         </section>
 
         {/* Right Sidebar - Courses */}
-        <aside style={{
-          flex: '1 1 22%',
-          background: '#ffffff',
-          padding: '20px',
-          borderRadius: '10px',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.05)',
-          minWidth: '250px',
-        }}>
-          <h2 style={{ marginBottom: '10px', fontSize: '1.2rem' }}>📚 Courses Offered</h2>
-          <ul style={{ paddingLeft: '20px' }}>
+        <aside
+          style={{
+            flex: "1 1 22%",
+            background: "#ffffff",
+            padding: "20px",
+            borderRadius: "10px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+            minWidth: "250px",
+          }}
+        >
+          <h2 style={{ marginBottom: "10px", fontSize: "1.2rem" }}>
+            📚 Courses Offered
+          </h2>
+          <ul style={{ paddingLeft: "20px" }}>
             {deptInfo.courses.map((course, i) => (
-              <li key={i} style={{ marginBottom: '8px' }}>{course}</li>
+              <li key={i} style={{ marginBottom: "8px" }}>
+                {course}
+              </li>
             ))}
           </ul>
         </aside>
