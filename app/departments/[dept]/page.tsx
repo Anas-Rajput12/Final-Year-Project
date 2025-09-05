@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
 type DepartmentData = {
   name: string;
@@ -14,148 +14,195 @@ type DepartmentData = {
 
 const departments: Record<string, DepartmentData> = {
   it: {
-    name: 'Information Technology',
-    overview: 'The IT department focuses on equipping students with practical and theoretical knowledge in modern computing, web technologies, and AI.',
+    name: "Information Technology",
+    overview:
+      "The IT department focuses on equipping students with practical and theoretical knowledge in modern computing, web technologies, and AI.",
     chairman: {
-      name: 'Prof. Dr. Muhammad Sulleman Memon',
-      image: 'https://quest.edu.pk/media/profile_images/177_9a24b310-4ee3-4e16-978f-db8ace8ab86b.jpg',
-      position: 'Chairman, IT Department',
+      name: "Prof. Dr. Muhammad Sulleman Memon",
+      image:
+        "https://quest.edu.pk/media/profile_images/177_9a24b310-4ee3-4e16-978f-db8ace8ab86b.jpg",
+      position: "Chairman, IT Department",
     },
-    staff: ['Prof. Dr. Muhammad Sulleman Memon (Chairman)', 'Prof. Dr. Muhammad Ibrahim Channa (Dean)', 'Prof. Dr. Zahid Hussain Abro (Professor)',
-'Dr. Shahzaman Niazamai (Associate Professor)',
-'Prof. Dr. Saifullah Memon (Assistant Professor)',
-'Dr. Baqir Ali Zardari (Assistant Professor)'],
-    courses: ['Web Development', 'AI & ML', 'Database Systems'],
+    staff: [
+      "Prof. Dr. Muhammad Sulleman Memon (Chairman)",
+      "Prof. Dr. Muhammad Ibrahim Channa (Dean)",
+      "Prof. Dr. Zahid Hussain Abro (Professor)",
+      "Dr. Shahzaman Niazamai (Associate Professor)",
+      "Prof. Dr. Saifullah Memon (Assistant Professor)",
+      "Dr. Baqir Ali Zardari (Assistant Professor)",
+    ],
+    courses: ["Web Development", "AI & ML", "Database Systems"],
   },
   cs: {
-    name: 'Computer Science',
-    overview: 'The CS department delivers in-depth education in programming, software development, data structures, and computational theory.',
+    name: "Computer Science",
+    overview:
+      "The CS department delivers in-depth education in programming, software development, data structures, and computational theory.",
     chairman: {
-      name: 'Prof. Dr. Muhammad Saleem Vighio',
-      image: 'https://quest.edu.pk/media/profile_images/187_cf6a7656-82b0-46a5-948f-f3dde7321de9.jpg',
-      position: 'Chairman, Computer Science',
+      name: "Prof. Dr. Muhammad Saleem Vighio",
+      image:
+        "https://quest.edu.pk/media/profile_images/187_cf6a7656-82b0-46a5-948f-f3dde7321de9.jpg",
+      position: "Chairman, Computer Science",
     },
-    staff: ['Prof. Dr. Muhammad Saleem Vighio','Prof. Dr. Mukhtiar Ahmed Memon(professor)',
-'Prof. Dr.Zahid Hussain Abro (professor)',
-' Dr. Shahzaman Niazamai (Associate Professor Professor)',
-'Prof. Dr. Saifullah Memon (Assistant professor)',
-' Dr.Baqir Ali Zardari (Assistant professor)'],
-    courses: ['Programming Fundamentals', 'Data Structures', 'Algorithms'],
+    staff: [
+      "Prof. Dr. Muhammad Saleem Vighio",
+      "Prof. Dr. Mukhtiar Ahmed Memon (Professor)",
+      "Prof. Dr. Zahid Hussain Abro (Professor)",
+      "Dr. Shahzaman Niazamai (Associate Professor)",
+      "Prof. Dr. Saifullah Memon (Assistant Professor)",
+      "Dr. Baqir Ali Zardari (Assistant Professor)",
+    ],
+    courses: ["Programming Fundamentals", "Data Structures", "Algorithms"],
   },
   se: {
-    name: 'Software Engineering',
-    overview: 'The SE department specializes in large-scale software design, agile methodologies, and quality assurance practices.',
+    name: "Software Engineering",
+    overview:
+      "The SE department specializes in large-scale software design, agile methodologies, and quality assurance practices.",
     chairman: {
-      name: 'Prof. Dr. Pardeep Kumar',
-      image: 'https://quest.edu.pk/media/profile_images/57_c4859ed2-ddd4-4c14-b3f7-ccbc75856dc7.jpg',
-      position: 'Chairman, Software Engineering',
+      name: "Prof. Dr. Pardeep Kumar",
+      image:
+        "https://quest.edu.pk/media/profile_images/57_c4859ed2-ddd4-4c14-b3f7-ccbc75856dc7.jpg",
+      position: "Chairman, Software Engineering",
     },
-    staff: ['Prof. Dr. Pardeep Kumar', 'Prof. Dr. Mukhtiar Ahmed Memon(professor)',
-'Prof. Dr. Zahid Hussain Abro (professor)',
-'Dr. Shahzaman Niazamai (Associate Professor Professor)',
-'Prof. Dr. Saifullah Memon (Assistant professor)',
-'Dr. Baqir Ali Zardari (Assistant professor)'],
-    courses: ['Software Design', 'Agile Methods', 'Software Testing'],
+    staff: [
+      "Prof. Dr. Pardeep Kumar",
+      "Prof. Dr. Mukhtiar Ahmed Memon (Professor)",
+      "Prof. Dr. Zahid Hussain Abro (Professor)",
+      "Dr. Shahzaman Niazamai (Associate Professor)",
+      "Prof. Dr. Saifullah Memon (Assistant Professor)",
+      "Dr. Baqir Ali Zardari (Assistant Professor)",
+    ],
+    courses: ["Software Design", "Agile Methods", "Software Testing"],
   },
   ce: {
-    name: 'Civil Engineering',
-    overview: 'The Civil Engineering department focuses on infrastructure, structural mechanics, and sustainability in civil works.',
+    name: "Civil Engineering",
+    overview:
+      "The Civil Engineering department focuses on infrastructure, structural mechanics, and sustainability in civil works.",
     chairman: {
-      name: 'Prof. Dr. Daddan Khan Bangwar',
-      image: 'https://placehold.co/150x150?text=Chairman+CE',
-      position: 'Chairman, Civil Engineering',
+      name: "Prof. Dr. Daddan Khan Bangwar",
+      image: "https://placehold.co/150x150?text=Chairman+CE",
+      position: "Chairman, Civil Engineering",
     },
-    staff: ['Prof. Dr. Daddan Khan Bangwar', 'Dr. Bashir Ahmed Memon (Professor)',
-'Prof. Dr. Ahsan Ali Buriro (Professor)',
-'Dr. Aftab Hameed Memon (Professor)',
-'Dr. Mukhtiar Ali Samroo (Associate Professor)',
-'Dr. Riaz Bhambro (Associate Professor)',
-'Engr. Ubaidullah Memon (Associate Professor)'],
-    courses: ['Structural Design', 'Geotechnical Engineering', 'Fluid Mechanics'],
+    staff: [
+      "Prof. Dr. Daddan Khan Bangwar",
+      "Dr. Bashir Ahmed Memon (Professor)",
+      "Prof. Dr. Ahsan Ali Buriro (Professor)",
+      "Dr. Aftab Hameed Memon (Professor)",
+      "Dr. Mukhtiar Ali Samroo (Associate Professor)",
+      "Dr. Riaz Bhambro (Associate Professor)",
+      "Engr. Ubaidullah Memon (Associate Professor)",
+    ],
+    courses: ["Structural Design", "Geotechnical Engineering", "Fluid Mechanics"],
   },
   ee: {
-    name: 'Electrical Engineering',
-    overview: 'The EE department emphasizes power systems, electronics, control systems, and renewable energy sources.',
+    name: "Electrical Engineering",
+    overview:
+      "The EE department emphasizes power systems, electronics, control systems, and renewable energy sources.",
     chairman: {
-      name: 'Prof. Dr. Abdul Sattar Saand',
-      image: 'https://quest.edu.pk/media/profile_images/115_7ec7517b-8967-4f7c-9297-d96ee300c3c9.jpg',
-      position: 'Chairman, Electrical Engineering',
+      name: "Prof. Dr. Abdul Sattar Saand",
+      image:
+        "https://quest.edu.pk/media/profile_images/115_7ec7517b-8967-4f7c-9297-d96ee300c3c9.jpg",
+      position: "Chairman, Electrical Engineering",
     },
-    staff: ['Prof. Dr. Abdul Sattar Saand', 'Prof.Dr.Abdul Nasir Laghari (Chairman)',
-'Dr.Ahsanullah Soomro (Associate Professor Professor)',
-'Dr Asif Saleh Qureshi (Assistant Professor)',
-'Dr.Imran Ahmed Samo (Assistant)',
-'Dr.Asif Ali Siyal (Assistant Professor)',
-'Engr.Aman Abdul Raqeeb Bhutto (lab Instructor)'],
-    courses: ['Digital Logic Design', 'Power Systems', 'Electronics'],
+    staff: [
+      "Prof. Dr. Abdul Sattar Saand",
+      "Prof. Dr. Abdul Nasir Laghari (Professor)",
+      "Dr. Ahsanullah Soomro (Associate Professor)",
+      "Dr. Asif Saleh Qureshi (Assistant Professor)",
+      "Dr. Imran Ahmed Samo (Assistant Professor)",
+      "Dr. Asif Ali Siyal (Assistant Professor)",
+      "Engr. Aman Abdul Raqeeb Bhutto (Lab Instructor)",
+    ],
+    courses: ["Digital Logic Design", "Power Systems", "Electronics"],
   },
   me: {
-    name: 'Mechanical Engineering',
-    overview: 'The ME department develops mechanical skills in design, manufacturing, robotics, and fluid dynamics.',
+    name: "Mechanical Engineering",
+    overview:
+      "The ME department develops mechanical skills in design, manufacturing, robotics, and fluid dynamics.",
     chairman: {
-      name: 'Prof. Dr. Abdul Rehman Jatoi',
-      image: 'https://quest.edu.pk/media/profile_images/242_8ffe4dbc-8c80-46d1-ac29-0b27deb5f0b0.jpg',
-      position: 'Chairman, Mechanical Engineering',
+      name: "Prof. Dr. Abdul Rehman Jatoi",
+      image:
+        "https://quest.edu.pk/media/profile_images/242_8ffe4dbc-8c80-46d1-ac29-0b27deb5f0b0.jpg",
+      position: "Chairman, Mechanical Engineering",
     },
-    staff: ['Prof. Dr. Abdul Rehman Jatoi', 'Dr. Bashir Ahmed Memon (Professor)',
-'Prof. Dr. Ahsan Ali Buriro (Professor)',
-'Dr. Aftab Hameed Memon (Professor)',
-'Dr. Mukhtiar Ali Samroo (Associate Professor)',
-'Dr. Riaz Bhambro (Associate Professor)',
-'Engr. Ubaidullah Memon (Associate Professor)'],
-    courses: ['Thermodynamics', 'Machine Design', 'CAD/CAM'],
+    staff: [
+      "Prof. Dr. Abdul Rehman Jatoi",
+      "Dr. Bashir Ahmed Memon (Professor)",
+      "Prof. Dr. Ahsan Ali Buriro (Professor)",
+      "Dr. Aftab Hameed Memon (Professor)",
+      "Dr. Mukhtiar Ali Samroo (Associate Professor)",
+      "Dr. Riaz Bhambro (Associate Professor)",
+      "Engr. Ubaidullah Memon (Associate Professor)",
+    ],
+    courses: ["Thermodynamics", "Machine Design", "CAD/CAM"],
   },
   ai: {
-    name: 'AI & Data Science',
-    overview: 'This department trains students in artificial intelligence, machine learning, and data-driven solutions for modern problems.',
+    name: "AI & Data Science",
+    overview:
+      "This department trains students in artificial intelligence, machine learning, and data-driven solutions for modern problems.",
     chairman: {
-      name: 'Dr. Mehwish Leghari',
-      image: 'https://quest.edu.pk/media/profile_images/239_bf74cee8-4824-460a-a0cb-f9b7bc416f4b.jpeg',
-      position: 'Chairman, AI & DS Department',
+      name: "Dr. Mehwish Leghari",
+      image:
+        "https://quest.edu.pk/media/profile_images/239_bf74cee8-4824-460a-a0cb-f9b7bc416f4b.jpeg",
+      position: "Chairman, AI & DS Department",
     },
-    staff: ['Dr. Mehwish Leghari', 'Engr.Jawaid Akhtar Unar (Assistant Professor)'],
-    courses: ['Deep Learning', 'Data Mining', 'Python for AI'],
+    staff: [
+      "Dr. Mehwish Leghari",
+      "Engr. Jawaid Akhtar Unar (Assistant Professor)",
+    ],
+    courses: ["Deep Learning", "Data Mining", "Python for AI"],
   },
   bm: {
-    name: 'Bio Medical Engineering',
-    overview: 'The Bio Medical Engineering department prepares students for careers in healthcare technology and management.',
+    name: "Bio Medical Engineering",
+    overview:
+      "The Bio Medical Engineering department prepares students for careers in healthcare technology and management.",
     chairman: {
-      name: 'Dr. Abdul Aleem Jamali',
-      image: 'https://quest.edu.pk/media/profile_images/172_3a118634-258e-472d-aade-e75106c6eb5a.jpeg',
-      position: 'Chairman, Bio Medical Engineering',
+      name: "Dr. Abdul Aleem Jamali",
+      image:
+        "https://quest.edu.pk/media/profile_images/172_3a118634-258e-472d-aade-e75106c6eb5a.jpeg",
+      position: "Chairman, Bio Medical Engineering",
     },
-    staff: ['Dr. Abdul Aleem Jamali', 'Ms. Ayesha Khan'],
-    courses: ['Principles of Management', 'Financial Accounting', 'Marketing'],
+    staff: ["Dr. Abdul Aleem Jamali", "Ms. Ayesha Khan"],
+    courses: ["Principles of Management", "Financial Accounting", "Marketing"],
   },
   math: {
-    name: 'Mathematics',
-    overview: 'The Mathematics department provides the theoretical foundation for science and engineering through algebra, calculus, and more.',
+    name: "Mathematics",
+    overview:
+      "The Mathematics department provides the theoretical foundation for science and engineering through algebra, calculus, and more.",
     chairman: {
-      name: 'Prof. Rajab Ali Malookani',
-      image: 'https://quest.edu.pk/media/profile_images/193_11eb5a2f-a717-4dbf-844f-9dd32bdb7d51.jpg',
-      position: 'Chairman, Mathematics Department',
+      name: "Prof. Rajab Ali Malookani",
+      image:
+        "https://quest.edu.pk/media/profile_images/193_11eb5a2f-a717-4dbf-844f-9dd32bdb7d51.jpg",
+      position: "Chairman, Mathematics Department",
     },
-    staff: ['Prof. Rajab Ali Malookani ', 'Prof.Dr.Khuda Bux Amur (Professor)',
-'Prof.Dr.Sajjad Hussain Sandhio(Professor)',
-'Dr.Shakeel Ahmed Kambohi (Associate Professor Professor)',
-'Mr.Iqrar Ali Pali (Assistant Professor)'],
-    courses: ['Calculus', 'Linear Algebra', 'Numerical Methods'],
+    staff: [
+      "Prof. Rajab Ali Malookani",
+      "Prof. Dr. Khuda Bux Amur (Professor)",
+      "Prof. Dr. Sajjad Hussain Sandhio (Professor)",
+      "Dr. Shakeel Ahmed Kambohi (Associate Professor)",
+      "Mr. Iqrar Ali Pali (Assistant Professor)",
+    ],
+    courses: ["Calculus", "Linear Algebra", "Numerical Methods"],
   },
   ene: {
-    name: 'Environment Engineering Department',
-    overview: 'The Environment Engineering Department focuses on sustainable design, renewable energy, and environmental protection.',
+    name: "Environment Engineering",
+    overview:
+      "The Environment Engineering Department focuses on sustainable design, renewable energy, and environmental protection.",
     chairman: {
-      name: 'Prof. Dr. Abdul Nasir Laghari',
-      image: 'https://quest.edu.pk/media/profile_images/241_3fb0ce0e-dd39-4cde-b4ba-ef23e27d53fa.JPG',
-      position: 'Chairman, Environment Engineering Department',
+      name: "Prof. Dr. Abdul Nasir Laghari",
+      image:
+        "https://quest.edu.pk/media/profile_images/241_3fb0ce0e-dd39-4cde-b4ba-ef23e27d53fa.JPG",
+      position: "Chairman, Environment Engineering",
     },
-    staff: ['Prof. Dr. Abdul Nasir Laghari', 'Dr.Ahsanullah Soomro (Associate Professor Professor)',
-'Dr Asif Saleh Qureshi (Assistant Professor)',
-'Dr.Imran Ahmed Samo (Assistant)',
-'Dr.Asif Ali Siyal (Assistant Professor)',
-'Engr.Aman Abdul Raqeeb Bhutto (lab Instructor)'],
-    courses: ['Quantum Mechanics', 'Optics', 'Electromagnetism'],
-  }
+    staff: [
+      "Prof. Dr. Abdul Nasir Laghari",
+      "Dr. Ahsanullah Soomro (Associate Professor)",
+      "Dr. Asif Saleh Qureshi (Assistant Professor)",
+      "Dr. Imran Ahmed Samo (Assistant Professor)",
+      "Dr. Asif Ali Siyal (Assistant Professor)",
+      "Engr. Aman Abdul Raqeeb Bhutto (Lab Instructor)",
+    ],
+    courses: ["Quantum Mechanics", "Optics", "Electromagnetism"],
+  },
 };
 
 export default function DepartmentPage({
@@ -166,7 +213,6 @@ export default function DepartmentPage({
   const deptInfo = departments[params.dept];
 
   if (!deptInfo) return notFound();
-
   return (
     <main style={{
       padding: '40px 20px',
